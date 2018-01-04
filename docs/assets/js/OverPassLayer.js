@@ -97,6 +97,7 @@ L.LatLngBounds.prototype.toOverpassBBoxString = function (){
 
 L.OverPassLayer = L.FeatureGroup.extend({
   options: {
+	  //MODIFICAR AQUÍ (OPCIONAL)
     minzoom: 15,
 	// MODIFICAR AQUÍ
     endpoint: "https://overpass-api.de/api/",
