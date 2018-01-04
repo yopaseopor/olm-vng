@@ -111,7 +111,7 @@ for (tile in tileLayerData) {
 tileLayers['Estàndard (Mapnik)'].addTo(map);
 L.control.layers(tileLayers).addTo(map);
 // +++++ Set the coordinates for zoomhouse +++++
-map.setView([41.41297 , 1.96756], 17);
+map.setView([41.2274 , 1.7156], 14);
 var zoomHome = L.Control.zoomHome();
 zoomHome.addTo(map);
 var notesLayer = new leafletOsmNotes();
@@ -171,7 +171,7 @@ map.addControl(loadingControl);
 // https://github.com/makinacorpus/Leaflet.RestoreView
 if (!map.restoreView()) {
 // +++++ Coordinates (lat,lon) for local place +++++
-    map.setView([41.41297 , 1.96756], 17);
+    map.setView([41.2274 , 1.7156], 14);
 }
 
 var query = '';
