@@ -228,7 +228,7 @@ function addr_search() {
 
 // +++++ &viewbox=1.9341,41.4200,1.9886,41.3993&bounded=1 --> Coordinates (lat,long) for search box +++++
 // +++++++++ MODIFICAR AQUÍ +++++++++++
-    $.getJSON('http://nominatim.openstreetmap.org/search?format=json&viewbox=1.68434,41.23761,1.76502,41.20533&bounded=1&limit=5&q=' + inp.value, function(data) {
+    $.getJSON('https://nominatim.openstreetmap.org/search?format=json&viewbox=1.68434,41.23761,1.76502,41.20533&bounded=1&limit=5&q=' + inp.value, function(data) {
         var items = [];
 
         $.each(data, function(key, val) {
