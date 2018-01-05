@@ -11,7 +11,8 @@
     <meta property="og:url" content="https://yopaseopor.github.io/openlocalmap" />
 	<!--MODIFICAR AQUÍ-->
     <meta property="og:image" content="https://yopaseopor.github.io/openlocalmap/assets/img/preview.jpg" />
-    <meta property="og:description" content="Mapa per la Palma de Cervelló amb cerca de punts d'interès i altra informació." />
+	<!--MODIFICAR AQUÍ-->
+    <meta property="og:description" content="Mapa de Vilanova i la Geltrú amb cerca de punts d'interès i altra informació." />
     <link rel="shortcut icon" href="assets/img/favicon.ico"/>
     <link rel="stylesheet" href="assets/leaflet/leaflet.css" />
     <link rel="stylesheet" href="assets/css/Control.Loading.css" />
@@ -40,6 +41,8 @@
 	<li><a href="#mapillary" role="tab"><i class="fa fa-road"></i></a></li>
 	<li><a href="#routes" role="tab"><i class="fa fa-compass"></i></a></li>
 	<li><a href="#wikipedia" role="tab"><i class="fa fa-book"></i></a></li>
+		<!--MODIFICAR AQUÍ-->
+	<li><a href="#parking" role="tab"><i class="fa fa-car"></i></a></li>
 	<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
 	<li><a href="#developer" role="tab"><i class="fa fa-code"></i></a></li>
 	<li><a href="#about" role="tab"><i class="fa fa-info-circle"></i></a></li>
@@ -280,6 +283,25 @@
 		}
 	  </script>
 	  </div>
+	  
+	  	<!--MAPA APARCAMENT-->
+	<div class="sidebar-pane" id="parking">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <A NAME="IniciParking"></A>
+	  <!--MODIFICAR AQUÍ-->
+	  <h1>Zona Verda a Vilanova i la Geltrú</h1>
+	  <center><p><button onclick="refreshIframe();">Torna a les categories</button></p></center>
+	  <!--MODIFICAR AQUÍ-->
+	  <p><iframe name="Aparcament" width="100%" height="25000px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://overpass-turbo.eu/map.html?Q=%2F*%0AThis%20has%20been%20generated%20by%20the%20overpass-turbo%20wizard.%0AThe%20original%20search%20was%3A%0A%E2%80%9Cparking%3Acondition%3Aright%3Aresidents%3D*%E2%80%9D%0A*%2F%0A%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3B%0A%2F%2F%20gather%20results%0A(%0A%20%20%2F%2F%20query%20part%20for%3A%20%E2%80%9C%22parking%3Acondition%3Aright%3Aresidents%22%3D*%E2%80%9D%0A%20%20node%5B%22parking%3Acondition%3Aright%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20way%5B%22parking%3Acondition%3Aright%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20way%5B%22parking%3Acondition%3Aleft%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20way%5B%22parking%3Acondition%3Aright%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20way%5B%22parking%3Acondition%3Aboth%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20%20%20way%5B%22amenity%22%3D%22parking%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20%20%20%20%20way%5B%22parking%3Alane%3Aboth%22%3D%22no_stopping%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%0A)%3B%0A%2F%2F%20print%20results%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Aout%20body%3B%0A%0A%3E%3B%0A%0Aout%20skel%20qt%3B%7B%7Bstyle%3A%20%20%0A%0Away%5Bamenity%3Dparking%5D%7B%0A%0A%20%20icon-width%3A%2020%3B%0A%0A%20%20icon-image%3A%20url(%27https%3A%2F%2Fgithub.com%2Fyopaseopor%2Fbeta_style_josm%2Fraw%2Fmaster%2Ftraffic_signs_EUR%2FES%2FES_S17.png%27)%3B%0A%0A%20%20text%3A%20name%3B%0A%0A%7D%0A%0Away%5Bparking%3Acondition%3Aleft%3Dticket%5D%5Bparking%3Acondition%3Aleft%3Aresidents%3Dfree%5D%7B%0A%0A%20%20color%3Alime%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0Away%5Bparking%3Acondition%3Aright%3Dticket%5D%5Bparking%3Acondition%3Aright%3Aresidents%3Dfree%5D%7B%0A%0A%20%20color%3Agreen%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0Away%5Bparking%3Acondition%3Aboth%3Dticket%5D%5Bparking%3Acondition%3Aboth%3Aresidents%3Dfree%5D%7B%0A%0A%20%20color%3Ateal%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0Away%5Bparking%3Alane%3Aboth%3Dno_stopping%5D%7B%0A%0A%20%20color%3Ayellow%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0A%20%20%7D%7D"></iframe>
+	  <center><a href="#IniciWiki">Torna a l'inici</a></p></center></p>
+	  <script>
+		function refreshIframe() {
+   	 	var ifr = document.getElementsByName('WikiPalma')[0];
+   	 	ifr.src = ifr.src;
+		}
+	  </script>
+	  </div>
 
 	<!-- ENLLAÇOS D'INTERÈS -->
 	<div class="sidebar-pane" id="links">
@@ -357,6 +379,7 @@
 	<a href="https://wiki.openstreetmap.org/wiki/Ca:Notes" target="_blank">notes d'OSM</a> al mapa, i
 	 accedir directament a la pàgina d'OSM de la nota. Les notes són anotacions ràpides per notificar
 	 d'errors a la zona. Podeu afegir-ne des de la 
+	 <!--MODIFICAR AQUÍ-->
 	<a href="https://www.openstreetmap.org/#map=9/41.5446/2.0132&layers=N" target="_blank">pàgina d'OSM</a>.
 	<p><button type="button" onclick="addnotes();">Mostra notes d'OSM al mapa</button></p>
 	<p><button type="button" onclick="clearnotes();">Oculta notes d'OSM al mapa</button></p>
@@ -405,6 +428,7 @@
 	  </ul>
 
 	  <p style="text-align:justify; margin-right:5px;">També cal agrair a <b>Konfrare Albert (que és qui ha permés la personalització extrema de la seva eina)</b>  ,  (<a href="https://twitter.com/la_konfraria" target="_blank">@la_konfraria</a>) , <b>Xavier Barnada</b> (<a href="https://twitter.com/Xevib" target="_blank">@Xevib</a>) i a <b>Marco Antonio</b> (<a href="https://twitter.com/51114u9" target="_blank">@51114u9</a>) la seva ajuda i contribucions.</p>
+	  <p style="text-align:justify; margin-right:5px;">Per últim remarcar que NO TENIM RES A VEURE ni AMB l'organització d'OpenStreetMap ni pretenem fer servir la seva marca.</p>
 	  <p style="text-align:justify; margin-right:5px;">Sense aquestes eines i ajudes seria impossible que funcionés aquest lloc web, a tots ells, moltes gràcies.</p>
       
 	</div>
