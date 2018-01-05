@@ -131,7 +131,7 @@ L.OverPassLayer = L.FeatureGroup.extend({
 
   _poiInfo: function(tags,id) {
     var link = document.createElement("a");
-    link.href = "http://www.openstreetmap.org/edit?editor=id&node=" + id;
+    link.href = "https://www.openstreetmap.org/edit?editor=id&node=" + id;
     link.appendChild(document.createTextNode("Edit this entry in iD"));
     var table = document.createElement('table');
     for (var key in tags){
