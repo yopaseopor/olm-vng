@@ -284,18 +284,22 @@
 	  </script>
 	  </div>
 	  
-	  	<!--MAPA APARCAMENT-->
+	<!--MAPA APARCAMENT-->
 	<div class="sidebar-pane" id="parking">
 	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
 	  </div>
 	  <A NAME="IniciParking"></A>
-	  <!--MODIFICAR AQUÍ-->
-	  <h1>Zona Verda a Vilanova i la Geltrú</h1>
-
-	  <!--MODIFICAR AQUÍ-->
-	  
-<p><iframe name="aparcament" width="100%" height="800px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://tinyurl.com/ybl8jruj"></iframe></p>
-	 
+	  <h1>Aparcament a Vilanova i la Geltrú</h1>
+	  <center><p><button onclick="refreshIframe();">Carrega el mapa</button></p></center>
+	  <p><iframe name="Aparcament" width="500px" height="400px" frameborder="0" scrolling="no"
+	   marginheight="0" marginwidth="0" src="http://overpass-turbo.eu/map.html?Q=%2F*%0AThis%20has%20been%20generated%20by%20the%20overpass-turbo%20wizard.%0AThe%20original%20search%20was%3A%0A%E2%80%9Cparking%3Acondition%3Aright%3Aresidents%3D*%E2%80%9D%0A*%2F%0A%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3B%0A%2F%2F%20gather%20results%0A(%0A%20%20%2F%2F%20query%20part%20for%3A%20%E2%80%9C%22parking%3Acondition%3Aright%3Aresidents%22%3D*%E2%80%9D%0A%20%20node%5B%22parking%3Acondition%3Aright%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20way%5B%22parking%3Acondition%3Aright%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20way%5B%22parking%3Acondition%3Aleft%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20way%5B%22parking%3Acondition%3Aright%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20way%5B%22parking%3Acondition%3Aboth%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20%20%20way%5B%22amenity%22%3D%22parking%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20%20%20%20%20way%5B%22parking%3Alane%3Aboth%22%3D%22no_stopping%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%0A)%3B%0A%2F%2F%20print%20results%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Aout%20body%3B%0A%0A%3E%3B%0A%0Aout%20skel%20qt%3B%7B%7Bstyle%3A%20%20%0A%0Away%5Bamenity%3Dparking%5D%7B%0A%0A%20%20icon-width%3A%2020%3B%0A%0A%20%20icon-image%3A%20url(%27https%3A%2F%2Fgithub.com%2Fyopaseopor%2Fbeta_style_josm%2Fraw%2Fmaster%2Ftraffic_signs_EUR%2FES%2FES_S17.png%27)%3B%0A%0A%20%20text%3A%20name%3B%0A%0A%7D%0A%0Away%5Bparking%3Acondition%3Aleft%3Dticket%5D%5Bparking%3Acondition%3Aleft%3Aresidents%3Dfree%5D%7B%0A%0A%20%20color%3Alime%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0Away%5Bparking%3Acondition%3Aright%3Dticket%5D%5Bparking%3Acondition%3Aright%3Aresidents%3Dfree%5D%7B%0A%0A%20%20color%3Agreen%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0Away%5Bparking%3Acondition%3Aboth%3Dticket%5D%5Bparking%3Acondition%3Aboth%3Aresidents%3Dfree%5D%7B%0A%0A%20%20color%3Ateal%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0Away%5Bparking%3Alane%3Aboth%3Dno_stopping%5D%7B%0A%0A%20%20color%3Ayellow%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0A%20%20%7D%7D></iframe>
+	  <center><a href="#IniciParking">Torna a l'inici</a></p></center></p>
+	  <script>
+		function refreshIframe() {
+   	 	var ifr = document.getElementsByName('Aparcament')[0];
+   	 	ifr.src = ifr.src;
+		}
+	  </script>
 	  </div>
 
 	<!-- ENLLAÇOS D'INTERÈS -->
