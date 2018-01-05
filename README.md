@@ -1,6 +1,6 @@
-# OpenStreetMap for your city
+# Local OpenStreetMap
 
-More customized Local OpenStreetMap map showing multiple data with leaflet plugins.
+More customized Local OSM map showing multiple data with leaflet plugins.
 
 ## Live version!
 
