@@ -1,15 +1,19 @@
   <head>
-    <title>OpenStreetMap - la Palma de Cervelló</title>
+  <!--MODIFICAR AQUÍ-->
+    <title>OpenStreetMap - Vilanova i la Geltrú</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta property="og:title" content="OpenStreetMap - la Palma de Cervelló" />
+    <!--MODIFICAR AQUÍ-->
+	<meta property="og:title" content="OpenStreetMap - Vilanova i la Geltrú" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.konfraria.org/osm/cerca/web" />
-    <meta property="og:image" content="https://www.konfraria.org/osm/cerca/web/assets/img/preview.jpg" />
+	<!--MODIFICAR AQUÍ-->
+    <meta property="og:url" content="https://yopaseopor.github.io/osm-pois" />
+	<!--MODIFICAR AQUÍ-->
+    <meta property="og:image" content="https://yopaseopor.github.io/osm-pois/assets/img/preview.jpg" />
     <meta property="og:description" content="Mapa per la Palma de Cervelló amb cerca de punts d'interès i altra informació." />
     <link rel="shortcut icon" href="assets/img/favicon.ico"/>
-    <link rel="stylesheet" href="https://yopaseopor.github.io/osm-pois/assets/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="assets/leaflet/leaflet.css" />
     <link rel="stylesheet" href="assets/css/Control.Loading.css" />
     <link rel="stylesheet" href="assets/css/Control.Geocoder.css" />
     <link rel="stylesheet" href="assets/css/leaflet.label.css" />
@@ -98,8 +102,9 @@
           </div>
 	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
           onClick="location.href='#help_search'"> Ajuda (cerca)</button></center>
-	  <!--Cerca a la Palma-->
-	  <h1>Cerca local<br><small>a la Palma de Cervelló</small></h1>
+	  <!--Cerca local-->
+	  <!--MODIFICAR AQUÍ-->
+	  <h1>Cerca local<br><small>a Vilanova i la Geltrú</small></h1>
 	  <center><p><font style="font-family: verdana; font:size: 8px;">Cerqueu una adreça, un comerç, un nom
            de casa, una masia, una font...</font>
           <br><br>
@@ -126,8 +131,9 @@
 	  <!--Cerca - ajuda -->
 	  <A NAME="help_search"></A>
 	  <h1><span class="fa fa-support"></span> Ajuda</h1>
+	  <!--MODIFICAR AQUÍ-->
 	  <p style="text-align:justify; margin-right:5px;">Des d'aquesta secció podeu fer cerques tan
-          limitades a la zona de la Palma de Cervelló (cerca local) com a qualsevol lloc del Món. Per fer-ho
+          limitades a la zona de Vilanova i la Geltrú (cerca local) com a qualsevol lloc del Món. Per fer-ho
            cal introduir la vostra cerca a la caixa:</p>
 	  <center><img src="assets/img/help/cerca.png" width="60%"></center>
 	  <p style="text-align:justify; margin-right:5px;">A continuació cal prémer el botó «Cerca» i
@@ -207,16 +213,12 @@
 	  </script>
 		<form id="select" name="select">
 		<select id="gpx2" name="gpx2" onchange="cleargpx(); urlgpx();">
-		<option value='assets/gpx/track001.gpx' select>Passeig del Roure</option>
-		<option value='assets/gpx/track002.gpx' select>Camí de la Miranda</option>
-		<option value='assets/gpx/track003.gpx'>Passeig de la Font de Can Mascaró</option>
-		<option value='assets/gpx/track004.gpx'>Can Vidal-Can Llopart-Font del Marge</option>
-		<option value='assets/gpx/track005.gpx'>Cases de l'Aristot pel Maset</option>
-		<option value='assets/gpx/track006.gpx'>Can Via-Font del Maset</option>
-		<option value='assets/gpx/track007.gpx'>Camí de sotapenyes-Obaga</option>
-		<option value='assets/gpx/track008.gpx'>Camí de l'Obaga</option>
-		<option value='assets/gpx/track009.gpx'>Fontpineda i mirador dels Cingles</option>
-		<option value='assets/gpx/track010.gpx'>Ermita de Sant Vicenç Ferrer</option>
+		<!--MODIFICAR AQUÍ-->
+		<option value='assets/gpx/track001.gpx' select>La Talaia</option>
+		<option value='assets/gpx/track002.gpx' select>Puig de l'Àliga</option>
+		<option value='assets/gpx/track003.gpx'>El Montgrós</option>
+		<option value='assets/gpx/track003.gpx'>Camí de Ronda de VNG a Sitges</option>
+
 		</select>
 		<p><button class="fa fa-search" type="button" onclick="urlgpx(); addgpx(); link();"> Mostra</button> <button
                 class="fa fa-trash" type="button" onclick="cleargpx();"> Neteja</button></p></center>
@@ -265,10 +267,11 @@
 	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
 	  </div>
 	  <A NAME="IniciWiki"></A>
-	  <h1>La Palma de Cervelló a la Viquipèdia</h1>
+	  <!--MODIFICAR AQUÍ-->
+	  <h1>Vilanova i la Geltrú a la Viquipèdia</h1>
 	  <center><p><button onclick="refreshIframe();">Torna a les categories</button></p></center>
-	  <p><iframe name="WikiPalma" width="100%" height="25000px" frameborder="0" scrolling="no"
-	   marginheight="0" marginwidth="0" src="https://ca.m.wikipedia.org/w/index.php?title=Categoria:La_Palma_de_Cervell%C3%B3&mobileaction=toggle_view_mobile"></iframe>
+	  <!--MODIFICAR AQUÍ-->
+	  <p><iframe name="Wikiciutat" width="100%" height="25000px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://ca.m.wikipedia.org/w/index.php?title=Categoria:Vilanova_i_la_Geltrú&mobileaction=toggle_view_mobile"></iframe>
 	  <center><a href="#IniciWiki">Torna a l'inici</a></p></center></p>
 	  <script>
 		function refreshIframe() {
@@ -362,9 +365,10 @@
 	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
 	  </div>
 	  <h1>Quant a...</h1>
-	  <p style="text-align:justify; margin-right:5px;"><img align="right" src="https://www.konfraria.org/icones/konfraria.jpeg">Aquest és un mapa creat per l'associació sense ànim de lucre <a href="https://www.konfraria.org" target="_blank">la Konfraria de la Vila del Pingüí de la Palma</a>, que a més a més ha participat activament en el grup d'<a href="https://wiki.openstreetmap.org/wiki/WikiProject_Catalan" target="_blank">OSM en català</a> així com en la incorporació de dades al mapa de la Palma de Cervelló al projecte <a href="" target="_blank">OpenStreetMap</a>. Trobareu un resum de les activitats més rellevants a la <a href="https://wiki.openstreetmap.org/wiki/User:KonfrareAlbert" target="_blank">pàgina de l'usuari KonfrareAlbert</a>, i també informació sobre la importació del cadastre a la pàgina de <a href="https://wiki.openstreetmap.org/wiki/Palma_de_Cervell%C3%B3" target="_blank">la Palma de Cervelló al wiki d'OSM</a>. Trobareu més informació sobre la Konfraria, i el nostre contacte en <a href="https://www.lapalmadecervello.cat/entitats/cultura/la-konfraria-de-la-vila-del-pingui" target="_blank">aquest enllaç</a>.</p>
+	  <!--MODIFICAR AQUÍ-->
+	  <p style="text-align:justify; margin-right:5px;"><img align="right" src="assets/img/konfraria.jpeg">Aquest és un mapa de la nostra ciutat creat a partir d'un projecte de l'associació sense ànim de lucre <a href="https://www.konfraria.org" target="_blank">la Konfraria de la Vila del Pingüí de la Palma (de Cervelló)</a>, que a més a més ha participat activament en el grup d'<a href="https://wiki.openstreetmap.org/wiki/WikiProject_Catalan" target="_blank">OSM en català</a> així com en la incorporació de dades al mapa de la Palma de Cervelló al projecte <a href="" target="_blank">OpenStreetMap</a>. Trobareu un resum de les activitats més rellevants a la <a href="https://wiki.openstreetmap.org/wiki/User:KonfrareAlbert" target="_blank">pàgina de l'usuari KonfrareAlbert</a>, i també informació sobre la importació del cadastre a la pàgina de <a href="https://wiki.openstreetmap.org/wiki/Palma_de_Cervell%C3%B3" target="_blank">la Palma de Cervelló al wiki d'OSM</a>. Trobareu més informació sobre la Konfraria, i el nostre contacte en <a href="https://www.lapalmadecervello.cat/entitats/cultura/la-konfraria-de-la-vila-del-pingui" target="_blank">aquest enllaç</a>.</p>
 
-	  <p style="text-align:justify; margin-right:5px;"><img align="right" src="assets/img/github.png"><b>Codi del projecte:</b><br><a href="https://github.com/KonfrareAlbert/osm-pois" target="_blank">OSM la Palma de Cervelló</a> (llicència GPL) a GitHub.</p>
+	  <p style="text-align:justify; margin-right:5px;"><img align="right" src="assets/img/github.png"><b>Codi del projecte:</b><br><a href="https://github.com/yopaseopor/osm-pois" target="_blank">OSM POIS Personalitzable</a> (llicència GPL) a GitHub.</p>
 
 	  <p style="text-align:justify; margin-right:5px;">Aquest lloc web és un <i><a href="https://ca.wikipedia.org/wiki/Fork" target="_blank">fork</a></i> del projecte <b>osm-pois</b> de <b><i>Manuel Kaufmann</b></i>, del que n'hem aprofitat gran part del codi (<a href="https://pois.elblogdehumitos.com.ar/#14/41.4829/1.9178" target="_blank">POIs</a> al blog d'Humitos, codi d'osm-pois a <a href="https://github.com/humitos/osm-pois" target="_blank">GitHub</a> amb llicència <a href="https://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GPL</a>, Twitter: <a href="https://twitter.com/reydelhumo" target="_blank">@reydelhumo</a>).</p>
 
@@ -398,7 +402,7 @@
 	    <li><a href="https://graphhopper.com/" target="_blank">Graphhopper</a> © Graphhopper</li>
 	  </ul>
 
-	  <p style="text-align:justify; margin-right:5px;">També cal agrair a <b>Xavier Barnada</b> (<a href="https://twitter.com/Xevib" target="_blank">@Xevib</a>) i a <b>Marco Antonio</b> (<a href="https://twitter.com/51114u9" target="_blank">@51114u9</a>) la seva ajuda i contribucions.</p>
+	  <p style="text-align:justify; margin-right:5px;">També cal agrair a <b>Konfrare Albert (que és qui ha permés la personalització extrema de la seva eina)</b>  ,  (<a href="https://twitter.com/la_konfraria" target="_blank">@Xevib</a>) , <b>Xavier Barnada</b> (<a href="https://twitter.com/Xevib" target="_blank">@Xevib</a>) i a <b>Marco Antonio</b> (<a href="https://twitter.com/51114u9" target="_blank">@51114u9</a>) la seva ajuda i contribucions.</p>
 	  <p style="text-align:justify; margin-right:5px;">Sense aquestes eines i ajudes seria impossible que funcionés aquest lloc web, a tots ells, moltes gràcies.</p>
       
 	</div>
