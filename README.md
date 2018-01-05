@@ -1,14 +1,15 @@
-# OpenStreetMap la Palma de Cervelló
+# OpenStreetMap for your city
 
-Local OpenStreetMap map (la Palma de Cervelló) showing multiple data with leaflet plugins.
+More customized Local OpenStreetMap map showing multiple data with leaflet plugins.
 
 ## Live version!
 
-http://www.konfraria.org/osm/cerca/web
+http://yopaseopor.github.io/osm-pois
 
 ## Attribution
 
 Forked from:
+http://www.konfraria.org/osm/cerca/web
  - http://pois.elblogdehumitos.com.ar/ (Humitos)
 
 Strongly based on :
