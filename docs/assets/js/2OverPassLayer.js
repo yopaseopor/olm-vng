@@ -76,7 +76,7 @@ L.Control.MinZoomIdenticator = L.Control.extend({
     if (minzoomlevel == -1) {
       this._container.innerHTML = "no layer assigned";
     }else{
-      this._container.innerHTML = "Los POIs aparecerán al zoom: " + minzoomlevel + " (actual: " + this._map.getZoom() + ")";
+      this._container.innerHTML = "Els punts d'interès apareixeran al zoom: " + minzoomlevel + " (actual: " + this._map.getZoom() + ")";
     }
 
     if (this._map.getZoom() >= minzoomlevel) {
@@ -97,8 +97,9 @@ L.LatLngBounds.prototype.toOverpassBBoxString = function (){
 
 L.OverPassLayer = L.FeatureGroup.extend({
   options: {
+	  //MODIFICAR AQUÍ (OPCIONAL)
     minzoom: 15,
-    endpoint: "http://overpass-api.de/api/",
+    endpoint: "https://overpass-api.de/api/",
     query: "(node(BBOX)[organic];node(BBOX)[second_hand];);out qt;",
     callback: function(data) {
       for(var i = 0; i < data.elements.length; i++) {
@@ -129,7 +130,7 @@ L.OverPassLayer = L.FeatureGroup.extend({
 
   _poiInfo: function(tags,id) {
     var link = document.createElement("a");
-    link.href = "http://www.openstreetmap.org/edit?editor=id&node=" + id;
+    link.href = "https://www.openstreetmap.org/edit?editor=id&node=" + id;
     link.appendChild(document.createTextNode("Edit this entry in iD"));
     var table = document.createElement('table');
     for (var key in tags){

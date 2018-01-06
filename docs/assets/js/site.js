@@ -31,25 +31,25 @@ var tileLayerData = {
     },
     cycle: {
 	name: 'Bicicleta',
-	url: 'http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png',
+	url: 'http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png' + apikey,
 	attribution: 'Tessel·les <a href="http://thunderforest.com/opencyclemap/" target="_blank">ThunderForest</a>',
 	zoom: '18'
     },
     transport: {
 	name: 'Transport públic',
-	url: 'http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png',
+	url: 'http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png' + apikey,
 	attribution: 'Tessel·les <a href="http://thunderforest.com/transport/" target="_blank">ThunderForest</a>',
 	zoom: '20'
     },
     landscape: {
 	name: 'Paisatge',
-	url: 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
+	url: 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png' + apikey,
 	attribution: 'Tessel·les <a href="http://thunderforest.com/landscape/" target="_blank">ThunderForest</a>',
 	zoom: '18'
     },
     outdoor: {
 	name: 'A l\'aire lliure',
-	url: 'http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png',
+	url: 'http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png' + apikey,
 	attribution: 'Tessel·les <a href="http://thunderforest.com/outdoors/" target="_blank">ThunderForest</a>',
 	zoom: '18'
     },
@@ -61,7 +61,7 @@ var tileLayerData = {
 //    },
     mapbox: {
 	name: 'MapBox (satèl·lit)',
-	url: 'http://{s}.tiles.mapbox.com/v3/51114u9.kogin3jb/{z}/{x}/{y}.png',
+	url: 'https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png' + token,
 	attribution: 'Tessel·les <a href="http://mapbox.com/" target="_blank">MapBox</a>',
 	zoom: '19'
     },
