@@ -9,6 +9,7 @@ http://osm-catalan.github.io/openlocalmap
 ## Attribution
 
 Forked from:
+
  -http://www.konfraria.org/osm/cerca/web
  - http://pois.elblogdehumitos.com.ar/ (Humitos)
 
@@ -16,3 +17,8 @@ Strongly based on :
  - http://unterkunftskarte.de/
  - http://osm24.eu/
  - https://github.com/simon04/POImap/
+ 
+ Working on:
+ 
+ -La Palma de Cervelló (Catalonia/Spain) -http://www.konfraria.org/osm/cerca/web
+ -Vilanova i la Geltrú (Catalonia/Spain) -http://yopaseopor.github.io/olm-vng
