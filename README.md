@@ -11,7 +11,7 @@ http://osm-catalan.github.io/openlocalmap
 ### Forked from:
 
  - http://www.konfraria.org/osm/cerca/web
- - http://pois.elblogdehumitos.com.ar/ (Humitos)
+ - https://upoi.org (Humitos)
 
 ### Strongly based on :
  - http://unterkunftskarte.de/
