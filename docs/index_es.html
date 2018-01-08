@@ -1,0 +1,437 @@
+  <head>
+  <!--MODIFICAR AQUÍ-->
+    <title>OpenStreetMap - Vilanova i la Geltrú</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--MODIFICAR AQUÍ-->
+	<meta property="og:title" content="OpenStreetMap - Vilanova i la Geltrú" />
+    <meta property="og:type" content="website" />
+	<!--MODIFICAR AQUÍ-->
+    <meta property="og:url" content="https://osm-catalan.github.io/openlocalmap" />
+	<!--MODIFICAR AQUÍ-->
+    <meta property="og:image" content="https://osm-catalan.github.io/openlocalmap/assets/img/preview.jpg" />
+	<!--MODIFICAR AQUÍ-->
+    <meta property="og:description" content="Mapa de Vilanova i la Geltrú con búsqueda de puntos de interés y otra información." />
+    <link rel="shortcut icon" href="assets/img/favicon.ico"/>
+    <link rel="stylesheet" href="assets/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="assets/css/Control.Loading.css" />
+    <link rel="stylesheet" href="assets/css/Control.Geocoder.css" />
+    <link rel="stylesheet" href="assets/css/leaflet.label.css" />
+    <link rel="stylesheet" href="assets/css/leaflet.zoomhome.css" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="assets/print/easyPrint.css" />
+    <link rel="stylesheet" href="assets/css/leaflet.elevation-0.0.4.css" />
+
+    <link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="sidebar" class="sidebar collapsed">
+      <!-- Nav tabs -->
+      <ul class="sidebar-tabs" role="tablist">
+	<li><a href="#home" role="tab"><i class="fa fa-map-marker"></i></a></li>
+	<li><a href="#search" role="tab"><i class="fa fa-search"></i></a></li>
+	<li><a href="#mapillary" role="tab"><i class="fa fa-road"></i></a></li>
+	<li><a href="#routes" role="tab"><i class="fa fa-compass"></i></a></li>
+	<li><a href="#wikipedia" role="tab"><i class="fa fa-book"></i></a></li>
+		<!--MODIFICAR AQUÍ-->
+	<li><a href="#parking" role="tab"><i class="fa fa-car"></i></a></li>
+	<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
+	<li><a href="#developer" role="tab"><i class="fa fa-code"></i></a></li>
+	<li><a href="#about" role="tab"><i class="fa fa-info-circle"></i></a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="sidebar-content active">
+
+	<!--PUNTS D'INTERÈS-->
+	<A NAME="home_init"></A>
+	<div class="sidebar-pane" id="home">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
+          onClick="location.href='#help_home'"> Ayuda (PDI)</button></center>
+	  <h1>Puntos de interés </h1>
+	  <p>Seleccione los puntos que desea visualizar en el mapa y después cierre este panel haciendo clic en la  <b>«X»</b> para poder visualizarlo mejor.</p>
+	  <p class="permalink">
+	  <span class="fa fa-link"></span>
+	  <a id="permalink" href="#">Compartir este mapa (enlace)</a>
+	  </p>
+	  <div id="pois"></div>
+	  <!--Home - ajuda -->
+	  <br><hr width="90%">
+	  <A NAME="help_home"></A>
+	  <h1><span class="fa fa-support"></span> Ayuda</h1>
+	  <p style="text-align:justify; margin-right:5px;">Desde esta sección puede seleccionar los puntos de interés que desea visualizar en el mapa. Debe seleccionar todos aquellos puntos que desea, marcando la casilla correspondiente:</p>
+	  <center><img src="assets/img/help/pdis.png" width="80%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Cuando los haya seleccionado puede cerrar el panel haciendo clic sobre la  <b>«X»</b> que hay en lo alto a la izquierda, y en unos segundos (en función de la conexión a Internet) le aparecerán los puntos de interés sobre el mapa:</p>
+	  <center><img src="assets/img/help/pdis2.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">
+Ahora puede seleccionar el icono de cualquiera de los puntos de interés para ver más información (de la base de datos de OSM). Algunos campos como el correo electrónico o el sitio web son enlaces que se pueden seguir, y podrá llamar directamente al teléfono de contacto si utiliza el mapa desde un teléfono móvil:</p>
+	  <center><img src="assets/img/help/popup.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Si os apareciera un mensaje como este:</p>
+	  <center><img src="assets/img/help/zoom.png" width="100%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Significa que no se ha alcanzado el nivel mínimo de acercamiento para visualizar los iconos, y por tanto hay que se acerque más al mapa (con el botón
+            <b>«+»</b> del mapa, por ejemplo).</p>
+	  <p style="text-align:justify; margin-right:5px;">Si sigue el enlace<b>«Información al detalle (experto)»</b> que tienen todos los puntos de interés, se abrirá automáticamente el panel «Experto» con la información de las etiquetas del punto de interés en OpenStreetMap, y también enlaces para visualizar el punto de interés a OSM o incluso para editarlo:</p>
+	  <center><img src="assets/img/help/expert.png" width="90%"></center>
+	  <br>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
+          onClick="location.href='#home_init'"> Inicio</button></center>
+	</div>
+
+	<!--CERCA-->
+	<A NAME="search_init"></A>
+	<div class="sidebar-pane" id="search">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+          </div>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
+          onClick="location.href='#help_search'"> Ayuda (búsqueda)</button></center>
+	  <!--Cerca local-->
+	  <!--MODIFICAR AQUÍ-->
+	  <h1>Búsqueda local<br><small>en Vilanova i la Geltrú</small></h1>
+	  <center><p><font style="font-family: verdana; font:size: 8px;">Busque una dirección, un comercio, un nombre de casa, una casa, una fuente ...</font>
+          <br><br>
+	  <input type="text" name="addr" value="" id="addr" width="100%" /><br>
+	  <button class="fa fa-search" type="button" onclick="addr_search();"> Buscar</button> <button class="fa
+          fa-trash" type="button" onclick="clear_layer2();"> Limpiar</button></p></center>
+	  <div id="results"/>
+	  </div>
+
+          <br><hr width="90%">
+		
+	  <!--Cerca global-->	
+	  <h1>Búsqueda global<br><small>en todo el mundo</small></h1>
+	  <center><p><font style="font-family: verdana; font:size: 8px;">Busque una población, una dirección, un comercio ...</font><br><br>
+	  <input type="text" name="addr2" value="" id="addr2" width="100%" /><br>
+	  <button class="fa fa-search" type="button" onclick="addr_search2();"> Buscar</button> <button class="fa
+           fa-trash" type="button" onclick="clear_layer3();"> Limpiar</button></p></center>
+	  <div id="results2"/>
+	  </div>
+
+     	  <br><hr width="90%">
+
+	  <!--Cerca - ajuda -->
+	  <A NAME="help_search"></A>
+	  <h1><span class="fa fa-support"></span> Ayuda</h1>
+	  <!--MODIFICAR AQUÍ-->
+	  <p style="text-align:justify; margin-right:5px;">Desde esta sección puede buscar tan limitadas en la zona de Vilanova y la Geltrú (búsqueda local) como en cualquier lugar del Mundo. Para ello hay que introducir su búsqueda en la caja:</p>
+	  <center><img src="assets/img/help/cerca.png" width="60%"></center>
+	  <p style="text-align:justify; margin-right:5px;">A continuación hay que pulsar el botón "Buscar" y aparecerán un máximo de cinco resultados (en la búsqueda global serán diez), como se muestra en esta imagen:</p>
+	  <center><img src="assets/img/help/cerca1.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Finalmente simplemente seleccionar el resultado que desea ver en el mapa, y si no te gusta, puede volver a abrir esta sección para seleccionar otro. Los resultados se mostrarán en la búsqueda global en círculos verdes los nodos y en cajas rojas las vías, ya la búsqueda global en círculos y cajas azules.</p>
+	  <center><img src="assets/img/help/cerca2.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Las cajas y los círculos que se dibujan en el mapa se pueden hacer desaparecer pulsando el botón «Limpiar».</p>
+	  <br>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
+          onClick="location.href='#search_init'"> Inicio</button></center>
+	</div>
+
+	<!--MAPILLARY-->
+	<A NAME="mapillary_init"></A>
+	<div class="sidebar-pane" id="mapillary">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
+          onClick="location.href='#help_mapillary'"> Ajyuda (Mapillary)</button></center>
+	  <h1>Mapillary</h1>
+	  <center><img src="assets/img/mapillary.png" width="50" height="50">
+	  <p><b>Mapillary</b> es el Street View libre, está realizado por voluntarios y las imágenes se distribuyen bajo una licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca"
+           target="_blank">CC BY-SA 4.0</a>.</p>
+	  <p><button type="button" onclick="refreshMapillary();">Encuentra 10 lugares al azar en Mapillary</button>
+          </p>
+	  <p>Para encontrar nuevos lugares a Mapillary, cambie la vista del mapa y vuelva a hacer clic en el botón.</p>
+	  <p><button type="button" onclick="clear_layer();">Limpiar los marcadores de Mapillary</button></p>
+	  </center>
+
+	  <br><hr width="90%">
+
+	  <!--Mapillary - ajuda -->
+	  <A NAME="help_mapillary"></A>
+	  <h1><span class="fa fa-support"></span> Ayuda</h1>
+	  <p style="text-align:justify; margin-right:5px;">Desde esta sección puede encontrar diez puntos al azar de su vista del mapa, en los que se dispone de fotografía en Mapillary. Si os interesa localizar fotografías en una zona concreta, es recomendable acercarse el máximo a aquella zona antes de hacer clic en «Encuentra 10 lugares al azar a Mapillary». Después de hacerlo aparecerán 10 marcadores azules en el mapa:</p>
+	  <center><img src="assets/img/help/mapillary1.png" width="70%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Al seleccionar uno de los marcadores se le presentará una bocanada con la fotografía a Mapillary de la zona:</p>
+	  <center><img src="assets/img/help/mapillary2.png" width="70%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Si sigue el enlace <b>«Continua la secuencia en
+	   Mapillary»</b> se abrirá la página Mapillary en otra pestaña, en el punto exacto en la que estaba. Y desde allí podrá recorrer toda la ruta:
+</p>
+	  <center><img src="assets/img/help/mapillary_web.png" width="90%"></center>
+	  <br>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
+          onClick="location.href='#mapillary_init'"> Inicio</button></center>
+	</div>
+	
+	<!--RUTES-->
+	<A NAME="rutes_init"></A>
+	<div class="sidebar-pane" id="routes">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
+          onClick="location.href='#help_rutes'"> Ajuda (rutas a pie)</button></center>
+	  <h1>Rutas a pie</h1>
+	  <p style="text-align:justify; margin-right:5px;">Las rutas han sido creadas a partir de los datos de OpenStreetMap con 
+	  <a href="https://graphhopper.com/maps/">GraphHopper</a>.</p>
+	  <p style="text-align:justify; margin-right:5px;">Seleccione la ruta que desea ver:</p>
+	  <center>
+	  <script>
+	  function urlgpx() {
+		url=document.select.gpx2.options[document.select.gpx2.selectedIndex].value;
+		}
+	  </script>
+		<form id="select" name="select">
+		<select id="gpx2" name="gpx2" onchange="cleargpx(); urlgpx();">
+		<!--MODIFICAR AQUÍ-->
+		<option value='assets/gpx/track001.gpx' select>La Talaia</option>
+		<option value='assets/gpx/track002.gpx' select>Puig de l'Àliga</option>
+		<option value='assets/gpx/track003.gpx'>El Montgrós</option>
+		<option value='assets/gpx/track003.gpx'>Camí de Ronda de VNG a Sitges</option>
+
+		</select>
+		<p><button class="fa fa-search" type="button" onclick="urlgpx(); addgpx(); link();"> Mostrar</button> <button
+                class="fa fa-trash" type="button" onclick="cleargpx();"> Limpiar</button></p></center>
+	  </center>
+	  <center>
+	  <div id="info"></div>
+	  <div id="nom"></div>
+	  <div id="desc"></div>
+	  <div id="lev"></div>
+	  <div id="distance"></div>
+	  <div id="alt"></div>
+	  <div id="baix"></div>
+	  <div id="desni"></div>
+	  <div id="link"></div>
+	  <script >
+	  function link() {
+	 	if (url != 0) {
+		var link2 = '<a href=' +url+ ' target="_blank">fichero GPX</a>';
+		document.getElementById("link").innerHTML="Enlace: "+link2;}}
+	  </script>
+	  </center>
+
+	  <br><hr width="90%">
+
+	  <!-- Rutes - ajuda -->
+	  <A NAME="help_rutes"></A>
+	  <h1><span class="fa fa-support"></span> Ayuda</h1>
+	  <p style="text-align:justify; margin-right:5px;">Para poder visualizar una ruta simplemente selecciona una del listado:</p>
+	  <center><img src="assets/img/help/ruta1.png" width="70%"></center>
+	  <p style="text-align:justify; margin-right:5px;">A continuación sólo hay que seleccionar la opción
+	  <b>«Mostrar»</b> y le aparecerá la ruta centrada en el mapa:</p>
+	  <center><img src="assets/img/help/ruta.png" width="70%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Cuando haya abierto la ruta, en este panel encontrará informaciones diversas: la distancia del recorrido, la ganancia de altura acumulado, etc. También hay un enlace para poder bajar el archivo GPX de la ruta:
+</p>
+	  <center><img src="assets/img/help/info-ruta.png" width="80%"></center>
+	  <br>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
+          onClick="location.href='#rutes_init'"> Inicio</button></center>
+	</div>
+
+
+	<!--VIQUIPÈDIA-->
+	<div class="sidebar-pane" id="wikipedia">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <A NAME="IniciWiki"></A>
+	  <!--MODIFICAR AQUÍ-->
+	  <h1>Vilanova i la Geltrú en la Wikipedia</h1>
+	  <center><p><button onclick="refreshIframe();">Volver a categorías</button></p></center>
+	  <!--MODIFICAR AQUÍ-->
+	  <p><iframe name="Wikiciutat" width="100%" height="25000px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://es.wikipedia.org/w/index.php?title=Categor%C3%ADa:Villanueva_y_Geltr%C3%BA&mobileaction=toggle_view_mobile"></iframe>
+	  <center><a href="#IniciWiki">Volver a inicio</a></p></center></p>
+	  <script>
+		function refreshIframe() {
+   	 	var ifr = document.getElementsByName('Wikiciutat')[0];
+   	 	ifr.src = ifr.src;
+		}
+	  </script>
+	  </div>
+	  
+	  
+	<!--MAPA APARCAMENT-->
+	<div class="sidebar-pane" id="parking">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <a name="IniciParking"></a>
+	  <h1>Zona Verde en Vilanova i la Geltrú</h1>
+	  <center><p><button onclick="refreshIframe();">Cargar mapa</button></p></center>
+	  	<!--MODIFICAR AQUÍ-->
+	  <p><iframe name="Aparcament" width="300px" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://overpass-turbo.eu/map.html?Q=%2F*%0AThis%20has%20been%20generated%20by%20the%20overpass-turbo%20wizard.%0AThe%20original%20search%20was%3A%0A%E2%80%9Cparking%3Acondition%3Aright%3Aresidents%3D*%E2%80%9D%0A*%2F%0A%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3B%0A%2F%2F%20gather%20results%0A(%0A%20%20%2F%2F%20query%20part%20for%3A%20%E2%80%9C%22parking%3Acondition%3Aright%3Aresidents%22%3D*%E2%80%9D%0A%20%20node%5B%22parking%3Acondition%3Aright%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20way%5B%22parking%3Acondition%3Aright%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20way%5B%22parking%3Acondition%3Aleft%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20way%5B%22parking%3Acondition%3Aright%3Aresidents%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20way%5B%22parking%3Acondition%3Aboth%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20%20%20way%5B%22amenity%22%3D%22parking%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%20%20%0A%20%20%20%20%20%20%20%20%20%20way%5B%22parking%3Alane%3Aboth%22%3D%22no_stopping%22%5D(41.21222998725971%2C1.7167532444000244%2C41.21716119922773%2C1.725325584411621)%3B%0A%0A)%3B%0A%2F%2F%20print%20results%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Aout%20body%3B%0A%0A%3E%3B%0A%0Aout%20skel%20qt%3B%7B%7Bstyle%3A%20%20%0A%0Away%5Bamenity%3Dparking%5D%7B%0A%0A%20%20icon-width%3A%2020%3B%0A%0A%20%20icon-image%3A%20url(%27https%3A%2F%2Fgithub.com%2Fyopaseopor%2Fbeta_style_josm%2Fraw%2Fmaster%2Ftraffic_signs_EUR%2FES%2FES_S17.png%27)%3B%0A%0A%20%20text%3A%20name%3B%0A%0A%7D%0A%0Away%5Bparking%3Acondition%3Aleft%3Dticket%5D%5Bparking%3Acondition%3Aleft%3Aresidents%3Dfree%5D%7B%0A%0A%20%20color%3Alime%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0Away%5Bparking%3Acondition%3Aright%3Dticket%5D%5Bparking%3Acondition%3Aright%3Aresidents%3Dfree%5D%7B%0A%0A%20%20color%3Agreen%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0Away%5Bparking%3Acondition%3Aboth%3Dticket%5D%5Bparking%3Acondition%3Aboth%3Aresidents%3Dfree%5D%7B%0A%0A%20%20color%3Ateal%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0Away%5Bparking%3Alane%3Aboth%3Dno_stopping%5D%7B%0A%0A%20%20color%3Ayellow%3B%0A%0A%20%20opacity%3A0.5%3B%0A%0A%20%20%20%20text%3A%20wheelchair%3Adescription%3B%0A%20%20%0A%7D%0A%0A%20%20%7D%7D"></iframe>
+	  <center><a href="#IniciParking">Volver a inicio</a></p></center></p>
+	  <script>
+		function refreshIframe() {
+   	 	var ifr = document.getElementsByName('Aparcament')[0];
+   	 	ifr.src = ifr.src;
+		}
+	  </script>
+	  </div>
+	  
+	<!-- ENLLAÇOS D'INTERÈS -->
+	<div class="sidebar-pane" id="links">
+	<div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
+	  <h1>Enllaços d'interès</h1>
+	  <p>
+	    <ul>
+		<div class="item">
+		<li><strong>Comunitat catalana de OSM:</strong> <a href="https://osmand.net/">OSMcatalà</a>
+		  <p style="text-align:justify; margin-right:5px;"><img width="75px" height="75px" align="right" src="assets/img/osmcatala.png">  Encontrará información y detalles sobre la comunidad catalana de OSM en la página del proyecto en el wiki de OSM: <a href="https://wiki.openstreetmap.org/wiki/WikiProject_Catalan" target="_blank">Project Catalan</a>. También puede interactuar con ellos a través de la <a href="https://lists.openstreetmap.org/listinfo/talk-cat" target="_blank">lista de correo</a> o a través de la cuenta <a href="https://twitter.com/osmcatala" target="_blank">@osmcatala</a> en Twitter.</p>
+		</li>
+	      </div>
+
+		<div class="item">
+		<li><strong>OSM en su móvil:</strong> <a href="https://osmand.net/">OsmAnd</a>
+		  <p style="text-align:justify; margin-right:5px;"><img width="75px" height="75px" align="right" src="assets/img/osmand.png"><b>OsmAnd</b> es una de las aplicaciones más completas para usar OpenStreetMap en su teléfono inteligente, entre sus funcionalidades destaca el uso de mapas fuera de línea. El OsmAnd está disponible para Android y iPhone.</p>
+		</li>
+	      </div>
+
+	      <div class="item">
+		<li><strong>Càlculo de rutas:</strong> <a href="https://graphhopper.com/maps/">GraphHopper</a>
+		  <p style="text-align:justify; margin-right:5px;"><img hpace="5px" width="75px" height="75px" align="right" src="assets/img/graphhopper.png"><b>GraphHopper</b> le permite obtener una ruta después de seleccionar un punto de partida y un destino. Además, se le pueden añadir puntos intermedios. Permite calcular la ruta en coche, bicicleta ya pie; se obtiene un perfil de alturas y se puede exportar la ruta a un archivo GPX.</p>
+		</li>
+	      </div>
+	      <div class="item">
+		<li><strong>Mapes para Garmin:</strong> <a href="https://mapas.alternativaslibres.es/descargas.php">alternativaslibres.es</a>
+		  <p style="text-align:justify; margin-right:5px;">Mapas preparados para copiar los dispositivos Garmin y disponer de todo el poder de OpenStreetMap en su GPS.</p>
+		</li>
+	      </div>
+	      
+		<div class="item">
+		<li><strong>Cree sus mapas fácilmente:</strong> <a href="https://umap.openstreetmap.fr/es/">uMap</a>
+		  <p style="text-align:justify; margin-right:5px;"><img hpace="5px" width="75px" height="75px" align="right" src="assets/img/umap.png"><b>uMap</b> le permite crear mapas con capas de OpenStreetMap en un minuto y hacer un  <i>embed</i> (código HTML generado automáticamente por ser insertado) en su sitio web.</p>
+		</li>
+	      </div>
+
+		<div class="item">
+		<li><strong>Mapa en 3D:</strong> <a href="https://www.f4map.com/">F4Map</a>
+		<!-- MODIFICAR AQUÍ -->
+		  <p style="text-align:justify; margin-right:5px;"><img hpace="5px" width="75px" height="75px" align="right" src="assets/img/f4map.png">El sitio web (demo) de<b>F4Map</b>  le permite recrear un escenario de OpenStreetMap en 3D. En las opciones gráficas podréis seleccionar opciones como utilizar los datos de elevación del terreno, la hora del día o las condiciones climatológicas. El navegador web debe ser capaz de trabajar con  <a href="https://www.khronos.org/webgl/" target="_blank">WebGL</a> para una correcta visualización.<br><br><img width="100%" src="assets/img/f4map-imatge.png"><center><a href="https://demo.f4map.com/#lat=41.2213651&lon=1.7190071&zoom=17&camera.theta=58.483" target="_blank">Ir al mapa de Vilanova i la Geltrú en 3D</a></center></p>
+		</li>
+	      </div>
+
+	    </ul>
+	  </p>
+	</div>
+
+
+	<!-- EXPERT -->
+	<div class="sidebar-pane" id="developer">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <h1>Modo experto</h1>
+	  <p style="text-align:justify; margin-right:5px;">Este panel muestra la información de que dispone OpenStreetMap sobre cada elemento, y facilita enlaces para poder colaborar con el proyecto.</p>
+
+	  <p style="text-align:justify; margin-right:5px;">Para ver las etiquetas de un elemento necesario hacer clic en alguno de los puntos de interés del mapa, después de seleccionarlos desde el apartado «Puntos de interés».</p>
+
+	  <p style="text-align:justify; margin-right:5px;">También puede crear su propia consulta con OverpassAPI para buscar un punto de interés que<em>no
+	  esté</em> en la lista. Para ello hay que marcar la casilla:</p>
+
+	  <div>
+	    <label><input id="expert-mode" type="checkbox"/><span>Consulta personalizada con OverpassAPI</span></label>
+	    <form id="expert-form" style="display: none;">
+	      <input id="expert-query" style="width: 100%;" name="query" type="text" placeholder="[internet_access=wlan][amenity=fuel]"/>
+	    </form>
+	  </div>
+	  <p class="tags"></p>
+	 
+	<h2>Notas de OpenStreetMap</h2>
+	<p style="text-align:justify; margin-right:5px;">Desde aquí podrá visualizar las
+	<a href="https://wiki.openstreetmap.org/wiki/Ca:Notes" target="_blank">notas de OSM</a> en el mapa, y acceder directamente a la página de OSM de la nota. Las notas son anotaciones rápidas para notificar de errores en la zona. Puede añadir desde la
+	 <!--MODIFICAR AQUÍ-->
+	<a href="https://www.openstreetmap.org/#map=9/41.5446/2.0132&layers=N" target="_blank">página de OSM</a>.
+	<p><button type="button" onclick="addnotes();">Mostrar notas de OSM en el mapa</button></p>
+	<p><button type="button" onclick="clearnotes();">Oculta notas de OSM en el mapa</button></p>
+	</div>
+
+	<!--QUANT A-->
+	<div class="sidebar-pane" id="about">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <h1>Sobre...</h1>
+	  <!--MODIFICAR AQUÍ-->
+	  <p style="text-align:justify; margin-right:5px;"><img align="right" src="assets/img/konfraria.jpeg">Este es un mapa de nuestra ciudad creado a partir de un proyecto de la asociación sin ánimo de lucro <a href="https://www.konfraria.org" target="_blank">la Konfraria de la Vila del Pingüí de la Palma (de Cervelló)</a>, que además ha participado activamente en el grupo de'<a href="https://wiki.openstreetmap.org/wiki/WikiProject_Catalan" target="_blank">OSM en català</a>  así como en la incorporación de datos en el plano de Palma de Cervelló al proyecto <a href="" target="_blank">OpenStreetMap</a>. Encontrará un resumen de las actividades más relevantes en la <a href="https://wiki.openstreetmap.org/wiki/User:KonfrareAlbert" target="_blank">página del usuario KonfrareAlbert</a>,  y también información sobre la importación del catastro en la página de <a href="https://wiki.openstreetmap.org/wiki/Palma_de_Cervell%C3%B3" target="_blank">la Palma de Cervelló en el wiki de OSM</a>. Encontrará más información sobre la Konfraria, y nuestro contacto en <a href="https://www.lapalmadecervello.cat/entitats/cultura/la-konfraria-de-la-vila-del-pingui" target="_blank">este enlace</a>.</p>
+
+	  <p style="text-align:justify; margin-right:5px;"><img align="right" src="assets/img/github.png"><b>Código del proyecto:</b><br><a href="https://github.com/osm-catalan/openlocalmap" target="_blank">OpenLocalMap</a> (licencia GPL) en GitHub.</p>
+
+	  <p style="text-align:justify; margin-right:5px;">Este sitio web es un <i><a href="https://ca.wikipedia.org/wiki/Fork" target="_blank">fork</a></i> del proyecto <b>osm-pois</b> de <b><i>Manuel Kaufmann</b></i>, del que hemos aprovechado gran parte del código (<a href="https://upoi.org" target="_blank">POIs</a> en el blog de Humitos, código de osm-pois en <a href="https://github.com/humitos/osm-pois" target="_blank">GitHub</a> con licencia <a href="https://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GPL</a>, Twitter: <a href="https://twitter.com/reydelhumo" target="_blank">@reydelhumo</a>).</p>
+
+	 <p>Herramientas que se utilizan para hacer funcionar este sitio:</p>
+
+	  <ul class="item">
+	    <li><a href="https://leafletjs.com/" target="_blank">Leafletjs</a> © Vladimir Agafonkin</li>
+	    <li>Conectores de Leaflet:
+	      <ol>
+		<li><a href="https://github.com/ebrelsford/Leaflet.loading" target="_blank">Leaflet.loading</a> © Eric Brelsford</li>
+		<li><a href="https://github.com/Turbo87/sidebar-v2/" target="_blank">L.control.sidebar</a> © Tobias Bieniek</li>
+		<li><a href="https://www.mapbox.com/mapbox.js/plugins/#leaflet-locatecontrol" target="_blank">L.Control.Locate</a> © Mapbox</li>
+		<li><a href="https://github.com/makinacorpus/Leaflet.RestoreView" target="_blank">Leaflet.RestoreView</a> © Makina Corpus</li>
+		<li><a href="https://github.com/kartenkarsten/leaflet-layer-overpass" target="_blank">L.OverPassLayer</a> © kartenkarsten</li>
+		<li><a href="https://github.com/mlevans/leaflet-hash" target="_blank">L.Hash</a> © Michael Lawrence Evans</li>
+		<li><a href="https://github.com/Leaflet/Leaflet.label" target="_blank">Leaflet.label</a> © Leaflet</li>
+		<li><a href="https://github.com/osmlab/leaflet-osm-notes" target="_blank">Leaflet-osm-notes</a> © Tom MacWright</li>
+		<li><a href="https://github.com/torfuspolymorphus/leaflet.zoomhome" target="_blank">Leaflet.zoomhome</a> © Torf</li>
+		<li><a href="https://github.com/rowanwins/leaflet-easyPrint" target="_blank">leaflet-easyPrint</a> © Rowan Winsemius</li>
+		<li><a href="https://github.com/mpetazzoni/leaflet-gpx" target="_blank">leaflet-gpx</a> © Maxime Petazzoni</li>
+		<li><a href="https://github.com/MrMufflon/Leaflet.Elevation" target="_blank">Leaflet.elevation</a> © Felix Bache</li>
+		<li><a href="https://github.com/ypid/opening_hours.js" target="_blank">opening_hours.js</a> © Robin Schneider</li>
+	      </ol>
+	    </li>
+	    <li><a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font-Awesome</a> © Dave Gandy</li>
+	    <li><a href="https://mapicons.nicolasmollet.com/" target="_blank">Map Icons</a> © Nicolas Mollet</li>
+	    <li><a href="https://jquery.com" target="_blank">jQuery</a> © The jQuery Foundation</li>
+	    <li><a href="https://github.com/medialize/URI.js" target="_blank">URI.js</a> © Medialize</li>
+	    <li><a href="https://github.com/janl/mustache.js" target="_blank">Mustache</a> © Jan Lehnardt</li>
+	    <li><a href="https://www.mapillary.com/" target="_blank">Mapillary</a> © Mapillary</li>
+	    <li><a href="https://graphhopper.com/" target="_blank">Graphhopper</a> © Graphhopper</li>
+	  </ul>
+
+	  <p style="text-align:justify; margin-right:5px;">También hay que agradecer a <b>Konfrare Albert (que es quien ha permitido la personalización extrema de su herramienta)</b>  ,  (<a href="https://twitter.com/la_konfraria" target="_blank">@la_konfraria</a>) , <b>Xavier Barnada</b> (<a href="https://twitter.com/Xevib" target="_blank">@Xevib</a>) y a <b>Marco Antonio</b> (<a href="https://twitter.com/51114u9" target="_blank">@51114u9</a>) su ayuda y contribuciones.</p>
+	  <p style="text-align:justify; margin-right:5px;">Por último destacar que NO TENEMOS NADA QUE VER ni CON la organización de OpenStreetMap ni pretendemos utilizar su marca.</p>
+	  <p style="text-align:justify; margin-right:5px;">Sin estas herramientas y ayudas sería imposible que funcionara este sitio web, a todos ellos, muchas gracias.</p>
+      
+	</div>
+       </div>
+      </div>
+    </div>
+
+    <div id="map" class="sidebar-map"></div>
+
+    <div id="spinner" style="display: none;">
+      <img src="assets/img/spinner.gif">
+    </div>
+
+    <!-- Javascripts -->
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="assets/leaflet/leaflet.js"></script>
+    <script src="assets/js/thunderforest.js"></script>
+    <script src="assets/js/leaflet-osm-notes.js"></script>
+    <script src="assets/js/leaflet.zoomhome.js"></script>
+    <script src="assets/js/leaflet.label.js"></script>
+    <script src="assets/js/leaflet.restoreview.js"></script>
+    <script src="assets/js/leaflet-sidebar.js"></script>
+    <script src="assets/js/Control.Loading.js"></script>
+    <script src="https://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script src="assets/print/jQuery.print.js"></script>
+    <script src="assets/print/leaflet.easyPrint.js"></script>
+    <script src="assets/js/leaflet.elevation-0.0.4.src.js"></script>
+    <script src="assets/js/gpx.js"></script>  
+    <script src="assets/js/URI.js"></script>
+    <script src="assets/js/suncalc.js"></script>
+    <script src="assets/js/opening_hours.js"></script> 
+    <script src="assets/js/OverPassLayer.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js"></script>
+    <script src="assets/js/leaflet-hash.js"></script>
+    <script src="assets/js/mustache.js"></script>
+    <script src="assets/js/tags-parsers.js"></script>
+    <script src="assets/js/pois-type.js"></script>
+    <script src="assets/js/site.functions.js"></script>
+    <script src="assets/js/site.js"></script>
+
+  </body>
+</html>
