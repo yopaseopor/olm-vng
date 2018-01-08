@@ -28,3 +28,7 @@ http://osm-catalan.github.io/openlocalmap
 ## Instructions (Spanish)
  
  -http://yopaseopor.blogspot.com.es/2018/01/yorenderizo-openlocalmap-osm-en-tu.html
+ 
+ ## Languages 
+ 
+ To translate OpenLocalmap in your language replace index.html with index_xx (your language).html
