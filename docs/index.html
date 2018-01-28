@@ -41,6 +41,7 @@
 	<li><a href="#routes" role="tab"><i class="fa fa-compass"></i></a></li>
 	<li><a href="#wikipedia" role="tab"><i class="fa fa-book"></i></a></li>
 		<!--MODIFICAR AQUÍ-->
+			<li><a href="#truck" role="tab"><i class="fa fa-truck"></i></a></li>
 	<li><a href="#comments" role="tab"><i class="fa fa-comments-o"></i></a></li>
 	<li><a href="#parking" role="tab"><i class="fa fa-car"></i></a></li>
 	<!--<li><a href="#mapillary" role="tab"><i class="fa fa-road"></i></a></li>-->
@@ -320,7 +321,17 @@ s.setAttribute('data-timestamp', +new Date());
 	  </div>
 <!-- FINAL DISQS -->
 	  
-	  
+		<!--MAPA APARCAMENT-->
+	<div class="sidebar-pane" id="truck">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <h1>Zona Verda a Vilanova i la Geltrú</h1>
+	      <style>
+        #map  { width: 100%; height: 100%; position: absolute; left: 0; top: 0; }
+        .legend-element { display:inline-block; width:30px; height:3px; vertical-align:middle; overflow:hidden; }
+        .control-padding { padding: 4px 7px; font-size: 120%; }
+    </style>
+	  </div>  
 	  
 	<!--MAPA APARCAMENT-->
 	<div class="sidebar-pane" id="parking">
@@ -504,6 +515,7 @@ s.setAttribute('data-timestamp', +new Date());
     <script src="assets/js/tags-parsers.js"></script>
     <script src="assets/js/pois-type.js"></script>
     <script src="assets/js/site.functions.js"></script>
+	    <script src="assets/js/planes.js"></script>
     <script src="assets/js/site.js"></script>
 
   </body>
