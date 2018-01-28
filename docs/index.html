@@ -44,7 +44,7 @@
 			<li><a href="#truck" role="tab"><i class="fa fa-truck"></i></a></li>
 	<li><a href="#comments" role="tab"><i class="fa fa-comments-o"></i></a></li>
 	<li><a href="#parking" role="tab"><i class="fa fa-car"></i></a></li>
-	<!--<li><a href="#mapillary" role="tab"><i class="fa fa-road"></i></a></li>-->
+	<li><a href="#map" role="tab"><i class="fa fa-road"></i></a></li>
 	<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
 	<li><a href="#developer" role="tab"><i class="fa fa-code"></i></a></li>
 	<li><a href="#about" role="tab"><i class="fa fa-info-circle"></i></a></li>
@@ -321,7 +321,7 @@ s.setAttribute('data-timestamp', +new Date());
 	  </div>
 <!-- FINAL DISQS -->
 	  
-		<!--MAPA APARCAMENT-->
+		<!--MINIMAPA-->
 	<div class="sidebar-pane" id="truck">
 	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
 	  </div>  
@@ -345,6 +345,13 @@ s.setAttribute('data-timestamp', +new Date());
 						<div id="tips"></div>
 						<span class="theme navigateItem navigateItemNext"><a title="Random tip" onclick="getTips();"><i class="fas fa-caret-square-right"></i></a></span>
 					</div>
+					
+							<!--MAPA APARCAMENT-->
+	<div class="sidebar-pane" id="map">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>  
+
+    <script src="assets/js/planes.js"></script>
 					
 	<!--MAPA APARCAMENT-->
 	<div class="sidebar-pane" id="parking">
