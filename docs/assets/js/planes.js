@@ -1,32 +1,13 @@
 var map = L.map('map', { fadeAnimation: false });
 var hash = new L.Hash(map);
 
-if (document.location.href.indexOf('#') == -1)
-    if (!setViewFromCookie())
-        map.setView([51.591, 24.609], 5);
 
-L.tileLayer.grayscale('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 18,
-}).addTo(map);
 
-L.control.locate({ drawCircle: false, drawMarker: false }).addTo(map);
 
-//------------- GitHub control ------------------
 
-L.Control.Link = L.Control.extend({
-    onAdd: map => {
-        var div = L.DomUtil.create('div', 'leaflet-control-layers control-padding');
-        div.innerHTML = 'Edit:';
-        div.innerHTML += ' <a id="josm-bbox" target="_blank">Josm</a>';
-        div.innerHTML += ', <a id="id-bbox" target="_blank">iD</a>';
-        div.innerHTML += ' | <a target="_blank" href="https://wiki.openstreetmap.org/wiki/Key:parking:lane">Tagging</a>';
-        div.innerHTML += ' | <a target="_blank" href="https://github.com/zetx16/parking-lanes">GitHub</a>';
-        return div;
-    }
-});
 
-new L.Control.Link({ position: 'bottomright' }).addTo(map);
+
+
 
 //------------- Legend control --------------------
 
@@ -65,35 +46,6 @@ function setLegendHead(e) {
     e.currentTarget.innerHTML = "Legend";
 }
 
-//------------- Datetime control --------------------
-
-L.Control.Datetime = L.Control.extend({
-    onAdd: map => {
-        var div = L.DomUtil.create('input', 'leaflet-control-layers control-padding');
-        div.style.width = '115px';
-        div.id = 'datetime-input';
-        div.onmousedown = div.ondblclick = div.onpointerdown = L.DomEvent.stopPropagation;
-        div.oninput = setDate;
-        return div;
-    }
-});
-
-new L.Control.Datetime({ position: 'topright' }).addTo(map);
-
-//------------- Info control --------------------
-
-L.Control.Info = L.Control.extend({
-    onAdd: map => {
-        var div = L.DomUtil.create('div', 'leaflet-control-layers control-padding');
-        div.innerHTML = 'Zoom in on the map.';
-        div.id = 'info';
-        return div;
-    }
-});
-
-new L.Control.Info({ position: 'topright' }).addTo(map);
-
-// ---------------------------------------------
 
 var legend = [
     { condition: 'disc',        color: 'gold',          text: 'Disc'          },
