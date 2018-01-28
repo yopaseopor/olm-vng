@@ -1,6 +1,26 @@
 // spinner
 var spinner = 0;
 
+// bounding coordinates for minimap
+$('#minimap > map > area').click(function () {
+	var mLoc = $(this).attr('title'), mBounds = [];
+	switch (mLoc) {
+		case 'Bexhill': mBounds = LBounds; break;
+		case 'Barnhorn': mBounds = [[50.8507, 0.4301], [50.8415, 0.4066]]; break;
+		case 'Central': mBounds = [[50.8425, 0.4801], [50.8351, 0.4649]]; break;
+		case 'Collington': mBounds = [[50.8472, 0.4604], [50.8352, 0.4406]]; break;
+		case 'Cooden': mBounds = [[50.8417, 0.4416], [50.8305, 0.4195]]; break;
+		case 'Glenleigh Park': mBounds = [[50.8573, 0.4641], [50.8476, 0.4454]]; break;
+		case 'Glyne Gap': mBounds = [[50.8485, 0.5102], [50.8423, 0.4954]]; break;
+		case 'The Highlands': mBounds = [[50.8637, 0.4615], [50.8566, 0.4462]]; break;
+		case 'Little Common': mBounds = [[50.8501, 0.4424], [50.8399, 0.4244]]; break;
+		case 'Old Town': mBounds = [[50.8484, 0.4841], [50.8419, 0.4706]]; break;
+		case 'Pebsham': mBounds = [[50.8589, 0.5140], [50.8472, 0.4882]]; break;
+		case 'Sidley': mBounds = [[50.8607, 0.4833], [50.8509, 0.4610]]; break;
+	}
+	if (mBounds) map.flyToBounds(L.latLngBounds(mBounds));
+});
+
 // Don't scape HTML string in Mustache
 Mustache.escape = function (text) { return text; }
 
